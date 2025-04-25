@@ -1,0 +1,11 @@
+create database HRSystem;
+USE hrsystem;
+CREATE TABLE departments(department_id int primary key, department_name varchar(100));
+INSERT INTO departments(department_id,department_name) VALUES (1, 'Engineering'),(2, 'HR'),(3, 'Sales');
+select * from departments;
+INSERT INTO employee(id,name,department,salary) VALUES (4, 'Diana', 'HR', 60000),(5, 'Evan', NULL, 55000);
+select * from employee;
+select employee.name, departments.department_name from employee inner join departments on employee.department=departments.department_name;
+select employee.name, departments.department_name from employee left join departments on employee.department=departments.department_name;
+select employee.name, departments.department_name from employee right join departments on employee.department=departments.department_name;
+select employee.name, departments.department_name from employee left join departments on employee.department=departments.department_name UNION select employee.name, departments.department_name from employee right join departments on employee.department=departments.department_name;

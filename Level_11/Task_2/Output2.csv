@@ -1,0 +1,5 @@
+id,name,department,salary,appraisal_percentage
+1,Alice,Engineering,75000.00,NULL
+2,Bob,Marketing,70000.00,NULL
+4,Diana,HR,60000.00,NULL
+5,Evan,NULL,55000.00,NULL
