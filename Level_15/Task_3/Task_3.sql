@@ -1,0 +1,2 @@
+use shopping;
+select gender, avg(quantity*price) as avg_spend, sum(quantity*price) as total_spend, max(quantity*price) as max_spend, min(quantity*price) as min_spend from customer_shopping_data group by gender;

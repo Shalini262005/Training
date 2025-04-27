@@ -10,14 +10,13 @@ Shalini S
 
 ## Phase - 1
 
-### ✅ Levels Completed: 14
+### ✅ Levels Completed: 15
 
 ---
 
 ### ❌ Incomplete Tasks in Levels:
 
-| Level    | Incomplete Tasks                                        |
-|----------|---------------------------------------------------------|
-| Level_9  | Task_5 (Bonus)                                          |
-| Level_14 | Task_4, Task_5, Task_6, Task_7, Task_9, Task_10, Task_11 |
-
+| Level    | Incomplete Tasks                                      |
+|----------|-------------------------------------------------------|
+| Level 14 | Task 5, Task 6, Task 7, Task 9, Task 10, Task 11     |
+| Level 15 | Task 11                                      |

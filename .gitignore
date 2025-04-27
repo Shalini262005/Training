@@ -1,0 +1,58 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables
+.env
+*.env
+
+# Flask instance folder (stores uploaded files, etc.)
+instance/
+.webassets-cache
+
+# Python virtual environment
+venv/
+venv1/
+venv2/
+venv3/
+ENV/
+env/
+.venv/
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Logs and local databases
+*.log
+*.sqlite
+*.sqlite3
+*.db
+
+# VS Code / IDEs
+.vscode/
+.idea/
+
+# MacOS / Linux system files
+.DS_Store
+*.swp
