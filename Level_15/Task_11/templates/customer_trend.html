@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Trend Chart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <a href="/" class="button" style="padding: 8px 16px; font-size: 0.9em;">Back to Home</a>
+    <div class="container">
+        <header>
+            <h1>Customer Trend Chart</h1>
+            <p>Shows number of unique customers over time (no JavaScript used)</p>
+        </header>
+        <div class="content">
+            <img src="data:image/png;base64,{{ chart_base64 }}" alt="Customer Trend Chart" />
+        </div>
+    </div>
+</body>
+</html>

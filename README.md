@@ -18,5 +18,4 @@ Shalini S
 
 | Level    | Incomplete Tasks                                      |
 |----------|-------------------------------------------------------|
-| Level 14 | Task 5, Task 6, Task 7, Task 9, Task 10, Task 11     |
-| Level 15 | Task 11                                      |
+| Level 14 | Task 7     |

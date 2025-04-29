@@ -2,6 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for, flash, jso
 import mysql.connector
 from datetime import datetime
 import uuid
+import matplotlib.pyplot as plt
+import io
+import base64
 
 app = Flask(__name__)
 app.secret_key = "abcd" 
@@ -130,6 +133,48 @@ def top_5_cust():
     connection.close()
 
     return render_template('top_5_cust.html', rows=rows)
+
+@app.route("/customer-trend")
+def customer_trend():
+    connection = get_db_connection()
+    cursor = connection.cursor(dictionary=True)
+
+    query = '''
+        SELECT 
+            YEAR(STR_TO_DATE(invoice_date, '%d/%m/%Y')) AS Year,
+            MONTHNAME(STR_TO_DATE(invoice_date, '%d/%m/%Y')) AS MonthName,
+            COUNT(DISTINCT customer_id) AS CustomerCount
+        FROM customer_shopping_data
+        GROUP BY Year, MONTH(STR_TO_DATE(invoice_date, '%d/%m/%Y')), MonthName
+        ORDER BY Year, MONTH(STR_TO_DATE(invoice_date, '%d/%m/%Y'))
+    '''
+    cursor.execute(query)
+    rows = cursor.fetchall()
+    cursor.close()
+    connection.close()
+
+    # Prepare labels and values
+    labels = [f"{row['Year']} {row['MonthName']}" for row in rows]
+    values = [row['CustomerCount'] for row in rows]
+
+    # Plot
+    plt.figure(figsize=(10, 5))
+    plt.plot(labels, values, marker='o')
+    plt.xticks(rotation=45, ha='right')
+    plt.title("Monthly Customer Count")
+    plt.xlabel("Month")
+    plt.ylabel("Number of Customers")
+    plt.tight_layout()
+
+    # Save plot to BytesIO buffer
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png')
+    buf.seek(0)
+    chart_base64 = base64.b64encode(buf.getvalue()).decode('utf-8')
+    buf.close()
+    plt.close()
+
+    return render_template("customer_trend.html", chart_base64=chart_base64)
 
 if __name__ == '__main__':
     app.run(debug=True)
